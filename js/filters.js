@@ -14,3 +14,10 @@ app.filter('priceFilter', function () {
     console.log(input);
   }
 });
+
+app.filter('priceConvert', function () {
+  return function (input) {
+    var numberString = input.toString()
+    console.log(numberString.split(0));
+  }
+})
