@@ -158,4 +158,12 @@ app.controller('CheckoutController', ['$scope', 'CheckoutBag', function ($scope,
   $scope.editSwitch = function () {
     $scope.edit = true;
   }
+  $scope.deleteTea =function (teaId) {
+    for (var i = 0; i < checkBag.length; i++) {
+      if (checkBag[i]._id === teaId) {
+        checkBag.splice(i, 1)
+        $scope.checkOutTeas = checkBag
+      }
+    }
+  }
 }]);

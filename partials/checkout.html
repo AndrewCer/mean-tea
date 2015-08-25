@@ -37,7 +37,7 @@
           <td>
             <input ng-hide='edit' type="button" value="Edit" class="btn btn-warning" ng-click='editSwitch()'>
             <input ng-show='edit' type="button" value="Save" class="btn btn-warning" ng-click='updateQuantity(newQuantity, tea._id)'>
-            <input type="button" value="Delete" class="btn btn-danger">
+            <input type="button" value="Delete" class="btn btn-danger" ng-click='deleteTea(tea._id)'>
           </td>
         </tr>
       </tbody>
