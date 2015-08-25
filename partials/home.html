@@ -17,8 +17,8 @@
       </select>
       <label>Search by name:</label>
       <input type="text" ng-model='search.name'>
-      <a href="/checkout"><input type="button" value="Checkout | Bag: Empty!" class="btn btn-danger pull-right" ng-show='bag.length<=0'></a>
-      <a href="/#/checkout"><input type="button" value="Checkout | Bag: ({{bag.length}})" class="btn btn-danger pull-right" ng-show='bag.length > 0' ></a>
+      <a href="/#/"><input type="button" value="Checkout | Bag: Empty!" class="btn btn-danger pull-right" ng-show='!bagLength.length'></a>
+      <a href="/#/checkout"><input type="button" value="Checkout | Bag: ({{bagLength.length}})" class="btn btn-danger pull-right" ng-show='bagLength.length > 0' ></a>
     </div>
   </div>
   <div class="container">
@@ -62,7 +62,7 @@
                     <input type="submit" value="Add To Bag" class='btn btn-warning'>
                   </form>
                 </div>
-                <p><b>Price:</b> {{tea.price}}</p>
+                <p><b>Price:</b> {{tea.price | currency}}</p>
                 <p><b>Caffeine Scale:</b> {{tea.caffeineScale}}</p>
                 <p><b>Ingredients:</b> {{tea.ingredients}}</p>
                 <p><b>Rating:</b> {{tea.rating}}</p>

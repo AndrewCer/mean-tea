@@ -1,12 +1,11 @@
-app.controller('HomeController', ['$scope', function ($scope) {
-  $scope.bag = []
+app.controller('HomeController', ['$scope', 'CheckoutBag', function ($scope, CheckoutBag) {
+  $scope.bagLength = CheckoutBag.bag
   $scope.addToBag = function (amount, tea) {
     if (amount === undefined) {
       amount = 1;
     }
     tea.count = amount
-    $scope.bag.push(tea)
-    console.log($scope.bag);
+    $scope.bag = CheckoutBag.bagArray(tea)
   }
   $scope.teas =
   [
@@ -15,7 +14,7 @@ app.controller('HomeController', ['$scope', function ($scope) {
           name: "Bayard stew",
           ingredients: "concentrated gluten, jewelry, dill, beetle nut, toast",
           caffeineScale: 244,
-          price: 1540,
+          price: 15.40,
           inStock: true,
           rating: 1,
           imageUrl: "http://s7d5.scene7.com/is/image/Teavana/32664_d?$cimg$",
@@ -28,7 +27,7 @@ app.controller('HomeController', ['$scope', function ($scope) {
           name: "Incompactness syrup",
           ingredients: "fennel, nutmeg leaves, parsley, cream of 'cream of cream', blarney",
           caffeineScale: 49,
-          price: 7348,
+          price: 73.48,
           inStock: true,
           rating: 2,
           imageUrl: "http://s7d5.scene7.com/is/image/Teavana/32303_d?$cimg$",
@@ -40,7 +39,7 @@ app.controller('HomeController', ['$scope', function ($scope) {
           name: "Flexner white tea",
           ingredients: "hot sauce, iron, beetle nut, fresco, blarney, raw mashed potato",
           caffeineScale: 38,
-          price: 4991,
+          price: 49.91,
           inStock: true,
           rating: 4,
           imageUrl: "http://s7d5.scene7.com/is/image/Teavana/31358_d?$cimg$",
@@ -52,7 +51,7 @@ app.controller('HomeController', ['$scope', function ($scope) {
           name: "Pressor leaf",
           ingredients: "purina chow, flavorings, pepper, acorns, quality tallow, old sock, bay leaf",
           caffeineScale: 153,
-          price: 5496,
+          price: 54.96,
           inStock: true,
           rating: 1,
           imageUrl: "http://s7d5.scene7.com/is/image/Teavana/31358_d?$cimg$",
@@ -64,7 +63,7 @@ app.controller('HomeController', ['$scope', function ($scope) {
           name: "Flexner veggie tea",
           ingredients: "cream of tartar, eggplant, cake, deer antler",
           caffeineScale: 181,
-          price: 2445,
+          price: 24.45,
           inStock: true,
           rating: 1,
           imageUrl: "http://s7d5.scene7.com/is/image/Teavana/32621_d?$cimg$",
@@ -76,7 +75,7 @@ app.controller('HomeController', ['$scope', function ($scope) {
           name: "Topflighter malt",
           ingredients: "botox, toast, cream of 'cream of 'cream of cream'', kitchen scraps, beef, aligator tongue, lawn clippings",
           caffeineScale: 241,
-          price: 4486,
+          price: 44.86,
           inStock: true,
           rating: 3,
           imageUrl: "http://s7d5.scene7.com/is/image/Teavana/31359_d?$cimg$",
@@ -88,7 +87,7 @@ app.controller('HomeController', ['$scope', function ($scope) {
           name: "Cooking mix",
           ingredients: "flavorings, roasted mushrooms, toast, tumeric",
           caffeineScale: 230,
-          price: 6973,
+          price: 69.73,
           inStock: true,
           rating: 3,
           imageUrl: "http://s7d5.scene7.com/is/image/Teavana/32303_d?$cimg$",
@@ -100,7 +99,7 @@ app.controller('HomeController', ['$scope', function ($scope) {
           name: "Cooking stew",
           ingredients: "eggplant",
           caffeineScale: 122,
-          price: 6003,
+          price: 60.03,
           inStock: true,
           rating: 2,
           imageUrl: "http://s7d5.scene7.com/is/image/Teavana/31358_d?$cimg$",
@@ -112,7 +111,7 @@ app.controller('HomeController', ['$scope', function ($scope) {
           name: "Prevenient herb tea",
           ingredients: "cream of tartar, cream of cream, kitchen scraps, flavorings",
           caffeineScale: 196,
-          price: 1374,
+          price: 13.74,
           inStock: true,
           rating: 3,
           imageUrl: "http://s7d5.scene7.com/is/image/Teavana/32174_d?$cimg$",
@@ -124,7 +123,7 @@ app.controller('HomeController', ['$scope', function ($scope) {
           name: "Angular mix",
           ingredients: "hot sauce, lawn clippings, fennel, parsley, quinine",
           caffeineScale: 196,
-          price: 4158,
+          price: 41.58,
           inStock: true,
           rating: 2,
           imageUrl: "http://s7d5.scene7.com/is/image/Teavana/32621_d?$cimg$",
@@ -134,6 +133,29 @@ app.controller('HomeController', ['$scope', function ($scope) {
   ]
 }]);
 
-app.controller('CheckoutController', ['$scope', function ($scope) {
-
+app.controller('CheckoutController', ['$scope', 'CheckoutBag', function ($scope, CheckoutBag) {
+  $scope.edit = false;
+  var checkBag = CheckoutBag.bag
+  var subTotal = 0;
+  $scope.checkOutTeas = CheckoutBag.bag;
+  for (var i = 0; i < checkBag.length; i++) {
+      subTotal = (checkBag[i].price * checkBag[i].count) + subTotal
+  }
+  $scope.orderTotal = subTotal
+  $scope.updateQuantity = function (newQuantity, teaId) {
+    if (newQuantity != null && newQuantity != 0) {
+      for (var i = 0; i < checkBag.length; i++) {
+        if (checkBag[i]._id === teaId) {
+          checkBag[i].count = newQuantity
+          $scope.edit = false;
+        }
+      }
+    }
+    else {
+      $scope.edit = false;
+    }
+  }
+  $scope.editSwitch = function () {
+    $scope.edit = true;
+  }
 }]);
