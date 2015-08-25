@@ -132,3 +132,7 @@ app.controller('HomeController', ['$scope', function ($scope) {
       }
   ]
 }]);
+
+app.controller('CheckoutController', ['$scope', function ($scope) {
+  
+}]);
