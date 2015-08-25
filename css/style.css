@@ -1,14 +1,18 @@
 .top-orange {
-  background-color: orange;
+  background-color: #FF7F50;
   color: white;
 }
 
 .orage-head {
-  color: orange;
+  color: #FF7F50;
   font-size: 60px;
 }
 
+.margin-bottom-me {
+  margin-bottom: 10px;
+}
 
-/*.pull-right {
-  float: right !important;
-}*/
+td:first-child {
+  width: 250px;
+  max-width: 100px;
+}

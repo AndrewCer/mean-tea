@@ -1,4 +1,4 @@
-var app = angular.module("appName", ['ngRoute']);
+var app = angular.module("MeanTea", ['ngRoute']);
 
 
 app.config(function ($routeProvider, $locationProvider) {
@@ -8,5 +8,5 @@ app.config(function ($routeProvider, $locationProvider) {
       controller: 'HomeController'
     })
     // $locationProvider.html5Mode(true);
-    // .otherwise({redirectTo: '/'})
+    .otherwise({redirectTo: '/'})
 })

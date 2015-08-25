@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='MeanTea'>
   <head>
     <meta charset="utf-8">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.3/angular.js'></script>
@@ -46,81 +46,7 @@
           </div><!--/.container-fluid -->
         </nav>
       </div>
-
     </div>
-    <div class="container">
-      <div class="row">
-        <label>Search by catagory:</label>
-        <select>
-          <option value=""></option>
-          <option value="dark">Dark</option>
-          <option value="col">Cold</option>
-          <option value="awesome">Awesome</option>
-          <option value="dry">Dry</option>
-          <option value="hot">Hot</option>
-          <option value="summer">Summer</option>
-          <option value="lucid">Lucid</option>
-          <option value="warm">Warm</option>
-          <option value="winter">Winter</option>
-          <option value="spring">Spring</option>
-        </select>
-        <label>Search by name:</label>
-        <input type="text">
-        <input type="button" value="Checkout | Bag: Empty!" class="btn btn-danger pull-right">
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Tea</th>
-              <th>
-                  Information
-              </th>
-              <div class="pull-right">
-                <label>Sort By Price:</label>
-                <select>
-                  <option value=""></option>
-                  <option value="high">Highest</option>
-                  <option value="low">Lowest</option>
-                </select>
-              </div>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Image</td>
-              <td>
-                  <h3 style="display: inline-block">Title</h3>
-                  <div class="pull-right">
-                    <h3 style="display: inline-block">Quantity:</h3>
-                    <select>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                      <option value="9">9</option>
-                      <option value="10">10</option>
-                    </select>
-                    <input type="button" value="Add To Bag" class='btn btn-warning'>
-                  </div>
-
-                  <p><b>Price:</b></p>
-                  <p><b>Caffeine Scale:</b></p>
-                  <p><b>Ingredients:</b></p>
-                  <p><b>Rating:</b></p>
-                  <p><b>In Stock?</b></p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <ng-view></ng-view>
   </body>
 </html>
