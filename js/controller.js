@@ -1,5 +1,12 @@
 app.controller('HomeController', ['$scope', function ($scope) {
-
+  $scope.bag = []
+  $scope.addToBad = function (amount, teaId) {
+    if (amount === undefined) {
+      amount = 1;
+    }
+    $scope.bag.push({tea: teaId, count: amount})
+    console.log($scope.bag);
+  }
   $scope.teas =
   [
       {
