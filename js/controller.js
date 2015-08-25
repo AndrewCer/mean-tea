@@ -1,10 +1,11 @@
 app.controller('HomeController', ['$scope', function ($scope) {
   $scope.bag = []
-  $scope.addToBad = function (amount, teaId) {
+  $scope.addToBag = function (amount, tea) {
     if (amount === undefined) {
       amount = 1;
     }
-    $scope.bag.push({tea: teaId, count: amount})
+    tea.count = amount
+    $scope.bag.push(tea)
     console.log($scope.bag);
   }
   $scope.teas =
@@ -134,5 +135,5 @@ app.controller('HomeController', ['$scope', function ($scope) {
 }]);
 
 app.controller('CheckoutController', ['$scope', function ($scope) {
-  
+
 }]);
