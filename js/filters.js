@@ -8,3 +8,9 @@ app.filter('testBool', function () {
     }
   }
 })
+
+app.filter('priceFilter', function () {
+  return function (input) {
+    console.log(input);
+  }
+});
