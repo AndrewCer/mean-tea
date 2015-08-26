@@ -20,3 +20,10 @@ td:first-child {
 #first-counter {
   width: 500px;
 }
+
+.caffeine-scale {
+  border: solid black 1px;
+  height: 170px;
+  width: 160px;
+  text-align: center;
+}

@@ -63,7 +63,13 @@
                   </form>
                 </div>
                 <p><b>Price:</b> {{tea.price | currency}}</p>
-                <p><b>Caffeine Scale:</b> {{tea.caffeineScale}}</p>
+                <div class="caffeine-scale pull-right">
+                  <!-- <p><b>Caffeine Scale:</b> {{tea.caffeineScale}}</p> -->
+                  <h4>Caffeine</h4>
+                  <p>mg/serving: {{tea.caffeineScale}}</p>
+                  <p>Rating: ''rating here''</p>
+                  <img src='' alt="graphics here" />
+                </div>
                 <p><b>Ingredients:</b> {{tea.ingredients}}</p>
                 <p><b>Rating:</b> {{tea.rating}}</p>
                 <p><b>In Stock?</b> {{tea.inStock | testBool}}</p>

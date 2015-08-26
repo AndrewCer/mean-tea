@@ -1,7 +1,7 @@
 app.controller('HomeController', ['$scope', 'CheckoutBag', function ($scope, CheckoutBag) {
   $scope.bagLength = CheckoutBag.bag
   $scope.addToBag = function (amount, tea) {
-    if (amount === undefined) {
+    if (!amount) {
       amount = 1;
     }
     tea.count = amount
@@ -143,7 +143,7 @@ app.controller('CheckoutController', ['$scope', 'CheckoutBag', function ($scope,
   }
   $scope.orderTotal = subTotal
   $scope.updateQuantity = function (newQuantity, teaId) {
-    if (newQuantity != null && newQuantity != 0) {
+    if (newQuantity && newQuantity != 0) {
       for (var i = 0; i < checkBag.length; i++) {
         if (checkBag[i]._id === teaId) {
           checkBag[i].count = newQuantity
